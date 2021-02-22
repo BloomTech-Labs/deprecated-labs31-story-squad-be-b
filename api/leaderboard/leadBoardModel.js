@@ -13,6 +13,7 @@ const getLeaderBoardData = async () =>{
                 'C.Wins',
                 'C.Losses',
                 'P.ID',
+                'P.SubmissionID',
                 'P.WritingPoints',
                 'P.DrawingPoints',
             ]);
@@ -24,14 +25,14 @@ const getLeaderBoardData = async () =>{
         const Name = child.Name;
         const WP = child.WritingPoints
         const DP = child.DrawingPoints
-        // const TP = child.Total_Points
+        const TP = child.Total_Points
         const outputNames = output.map(chil => chil.Name)
         if(outputNames.includes(Name)){
             output.forEach(chil =>{
                 if(chil.Name == Name){
                     chil.WritingPoints = WP;
                     chil.DrawingPoints = DP;
-                    chil.Total_Points = WP + DP;
+                    chil.Total_Points = WP+DP+TP;
                 }
             })
         }else{
@@ -40,6 +41,7 @@ const getLeaderBoardData = async () =>{
     }
     return output
 };
+
 
 module.exports = {
     getLeaderBoardData,
