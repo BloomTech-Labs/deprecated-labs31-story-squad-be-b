@@ -18,6 +18,7 @@ const children1 = [...new Array(8)].map((i, idx) => ({
   Losses: `${(99 - idx) % 5}`, // 4,3,2,1,0,4
   Total_Points: `${faker.random.number({ min: 0, max: 400 }) * 4}`,
   VotesRemaining: 3,
+  Streak: faker.random.number({min: 0, max: 4}),
 }));
 
 const children2 = [...new Array(8)].map((i, idx) => ({
@@ -36,6 +37,7 @@ const children2 = [...new Array(8)].map((i, idx) => ({
   Losses: `${(99 - idx) % 4}`, // 4,3,2,1,0,4
   Total_Points: `${faker.random.number({ min: 0, max: 400 }) * 3}`,
   VotesRemaining: 3,
+  Streak: faker.random.number({min: 0, max: 4}),
 }));
 
 const children3 = [...new Array(8)].map((i, idx) => ({
@@ -54,6 +56,7 @@ const children3 = [...new Array(8)].map((i, idx) => ({
   Losses: `${(99 - idx) % 2}`, // 4,3,2,1,0,4
   Total_Points: `${faker.random.number({ min: 0, max: 400 }) * 1}`,
   VotesRemaining: 3,
+  Streak: faker.random.number({min: 0, max: 4}),
 }));
 
 const children4 = [...new Array(8)].map((i, idx) => ({
@@ -70,6 +73,7 @@ const children4 = [...new Array(8)].map((i, idx) => ({
   Losses: `0`,
   Total_Points: 0,
   VotesRemaining: 3,
+  Streak: 0,
 }));
 
 const children = children1.concat(children2, children3, children4)

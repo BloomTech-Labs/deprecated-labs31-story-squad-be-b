@@ -35,6 +35,7 @@ const updateWinsForChildren = async () => {
     const winningChildren = children.filter(child => child.TeamID === winningTeam[0].ID)
     for (const winningChild of winningChildren) {
         await db('Children').where({ ID: winningChild.ChildID }).increment('Wins')
+        await db('Children').where({ ID: winningChild.ChildID }).increment('Streak')
     }
 }
 
@@ -44,6 +45,7 @@ const updateLosesForChildren = async () => {
     const losingChildren = children.filter(child => child.TeamID !== winningTeam[0].ID)
     for (const losingChild of losingChildren) {
         await db('Children').where({ ID: losingChild.ChildID }).increment('Losses')
+        await db('Children').where({ ID: losingChild.ChildID }).update({ Streak: 0})
     }
 }
 
